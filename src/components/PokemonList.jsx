@@ -51,9 +51,6 @@ function PokemonList() {
   const updatePokemonNickname = (pokemonId) => {
     const updatedPokemonData = {
       firstname: generateRandomNickname(),
-      type: "",
-      location: "",
-      description: "",
     };
 
     axios

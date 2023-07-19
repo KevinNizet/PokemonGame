@@ -51,12 +51,12 @@ const deletePokemon = (req, res) => {
 
 const updatePokemon = (req, res) => {
   const id = parseInt(req.params.id);
-  const { firstname, type, location, description } = req.body;
+  const { firstname } = req.body;
 
   database
     .query(
-      "update pokemon set firstname = ?, type = ?, location = ?, description = ? where id = ?",
-      [firstname, type, location, description, id]
+      "update pokemon set firstname = ? where id = ?",
+      [firstname, id]
     )
     .then(([result]) => {
       if (result.affectedRows === 0) {

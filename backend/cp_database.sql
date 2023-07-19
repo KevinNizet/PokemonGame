@@ -12,9 +12,9 @@ CREATE TABLE
     pokemon (
         id int primary key NOT NULL AUTO_INCREMENT,
         firstname varchar(255) NOT NULL,
-        type varchar(255) NOT NULL,
-        location varchar(255) NOT NULL,
-        description varchar(255) NOT NULL,
+        type varchar(255) NULL,
+        location varchar(255) NULL,
+        description varchar(255) NULL,
         picture varchar(500)
     ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb3;
 
