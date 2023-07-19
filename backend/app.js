@@ -1,10 +1,12 @@
 /* eslint-disable no-undef */
 require("dotenv").config();
 const express = require("express");
+const cors = require("cors");
 const app = express();
 
 //Midleware indispensable pour les requêtes POST
 app.use(express.json());
+app.use(cors({ origin: 'http://localhost:5173' }));
 
 const port = process.env.APP_PORT ?? 5001;
 
