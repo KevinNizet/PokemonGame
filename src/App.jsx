@@ -6,7 +6,6 @@ import "./style/import.scss";
 function App() {
   return (
     <div>
-      <h1>Bonjour </h1>
       <Routes>
         <Route path="/" element={<PokemonList/>}/>
         <Route path="/pokemon/:id" element={<PokemonDetail/>}/>

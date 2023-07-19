@@ -1,8 +1,11 @@
+/* eslint-disable react/no-unescaped-entities */
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
 
 function PokemonList() {
+
+ 
   const [pokemonData, setPokemonData] = useState([]);
 
   useEffect(() => {
@@ -13,15 +16,15 @@ function PokemonList() {
   }, []);
 
   return (
-    <>
+    
       <div className="pokemonList">
-        <p>Choisis ton Pokémon</p>
+        <p>Choisis ton starter pour partir à l'aventure ! </p>
         <div className="pokemonList_map">
           {pokemonData.map((pokemon) => (
             <li className="pokemonList_list" key={pokemon.id}>
               <NavLink to={`/pokemon/${pokemon.id}`}>
-                <div>
-                  <img src={pokemon.picture} alt={pokemon.firstname} />
+                <div className="image-container">
+                  <img className="nofill" src={pokemon.picture} alt={pokemon.firstname} />
                   <h3>{pokemon.firstname}</h3>
                 </div>
               </NavLink>
@@ -29,7 +32,6 @@ function PokemonList() {
           ))}
         </div>
       </div>
-    </>
   );
 }
 

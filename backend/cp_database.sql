@@ -49,5 +49,5 @@ VALUES (
         'Electricité',
         'Centrale électrique',
         'Peut recharger un téléphone rapidement',
-        'https://media.tenor.com/qC1khy3afmoAAAAC/pikachu-surprised.gif'
+        'https://66.media.tumblr.com/927365f0bbdd1f3d2f852bac8759f89b/tumblr_mh8a7wx1WG1rfjowdo1_r2_500.gif'
     );
