@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { AiFillDelete } from "react-icons/ai";
+import { MdCatchingPokemon } from "react-icons/md";
 import axios from "axios";
+import image1 from "../assets/backgrounds/1.gif";
+import image2 from "../assets/backgrounds/2.gif";
+import image3 from "../assets/backgrounds/3.gif";
+import image4 from "../assets/backgrounds/4.gif";
 
 function PokemonDetail() {
   const [detailData, setDetailData] = useState(undefined);
@@ -10,6 +14,13 @@ function PokemonDetail() {
   const [editingCommentId, setEditingCommentId] = useState(null);
   const { id } = useParams();
   const { handleSubmit, register, reset } = useForm();
+
+  const pokemonImages = {
+    1: image1, //bulbi
+    2: image2, //carapuce
+    3: image3, //salameche
+    4: image4, //pika
+  };
 
   //récupère les pokémons de la BDD
   useEffect(() => {
@@ -60,56 +71,75 @@ function PokemonDetail() {
   };
 
   return (
-    <div>
-      <img src={detailData?.picture} alt={detailData?.firstname} />
-      <p>Type : {detailData?.type}</p>
-      <p>Localisation : {detailData?.location}</p>
-      <p>Caractéristique : {detailData?.description}</p>
-      <p>
+    <div
+      style={{
+        backgroundImage: `url(${pokemonImages[id]})`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+        padding: "90px 0px 220px 0",
+      }}
+    >
+      <p id="details-title">
         Aide {detailData?.firstname} à trouver d'autres pokémons et note les
         ci-dessous !
       </p>
+      <div className="image-container-details">
+        <img src={detailData?.picture} alt={detailData?.firstname} />
+        <div className="allDetails">
+          <p>{detailData?.firstname}</p>
+          <p>Typeeee : {detailData?.type}</p>
+          <p>Localisation : {detailData?.location}</p>
+          <p>Caractéristiques : {detailData?.description}</p>
+        </div>
+      </div>
 
-      <form onSubmit={handleSubmit((formData) => addPokemon(formData))}>
-        <input
-          type="text"
-          name="comment"
-          defaultValue=""
-          {...register("comment")}
-        />
-        <button type="submit">Ajouter le pokémon</button>
-      </form>
+      <div className="captured-pokemon">
+        <h3>Pokémons capturés :</h3>
+        <ul>
+          {comments &&
+            comments.map((el) => (
+              <li key={el.id}>
+                {editingCommentId === el.id ? (
+                  <form>
+                    <input
+                      type="text"
+                      name="comment"
+                      defaultValue={el.comment}
+                      {...register("comment")}
+                    />
+                    <button type="submit">Save</button>
+                  </form>
+                ) : (
+                  <>
+                    <div className="comment">
+                      <MdCatchingPokemon
+                        className="icone"
+                        size={22}
+                        onClick={() => handleDelete(el.id)}
+                      />
+                      {el.comment}
+                    </div>
+                  </>
+                )}
+              </li>
+            ))}
+        </ul>
+      </div>
 
-      <h3>Pokémons capturés :</h3>
-      <ul>
-        {comments &&
-          comments.map((el) => (
-            <li key={el.id}>
-              {editingCommentId === el.id ? (
-                <form>
-                  <input
-                    type="text"
-                    name="comment"
-                    defaultValue={el.comment}
-                    {...register("comment")}
-                  />
-                  <button type="submit">Save</button>
-                </form>
-              ) : (
-                <>
-                  {el.comment}
-                  <AiFillDelete onClick={() => handleDelete(el.id)} />
-                </>
-              )}
-            </li>
-          ))}
-      </ul>
+      <div className="pokemon-form">
+        <form onSubmit={handleSubmit((formData) => addPokemon(formData))}>
+          <input
+            type="text"
+            name="comment"
+            defaultValue=""
+            {...register("comment")}
+          />
+          <button type="submit">Ajouter un pokémon</button>
+        </form>
+      </div>
     </div>
   );
 }
 
 export default PokemonDetail;
-
-//vérifier que tout fonctionne bien dans toute l'appli
-//supprimer le handleupdate en plein milieu qui sert à rien
-// voir pour setEditingCommentId ??? quelle utilité ?

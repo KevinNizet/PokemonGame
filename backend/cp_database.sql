@@ -36,19 +36,19 @@ VALUES (
         'Carapuce',
         'Eau',
         'Plage',
-        'Très mignon',
+        'Bon nageur',
         'https://66.media.tumblr.com/tumblr_ma4ft6OXxw1rfjowdo1_500.gif'
     ), (
         'Salameche',
         'Feu',
-        'Volcan',
+        'Café',
         'Fait de la lumière la nuit',
         'https://66.media.tumblr.com/tumblr_ma0tijLFPg1rfjowdo1_500.gif'
     ), (
         'Pikachu',
         'Electricité',
-        'Centrale électrique',
-        'Peut recharger un téléphone rapidement',
+        'Ville',
+        'Toujours au jus',
         'https://66.media.tumblr.com/927365f0bbdd1f3d2f852bac8759f89b/tumblr_mh8a7wx1WG1rfjowdo1_r2_500.gif'
     );
 
