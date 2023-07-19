@@ -16,6 +16,7 @@ function PokemonDetail() {
   return (
     <div>
       <p> page de détail</p>
+      <img src={detailData?.picture} alt={detailData?.firstname} />
       <p> {detailData?.firstname}</p>
       <p> {detailData?.type}</p>
       <p> {detailData?.location}</p>
