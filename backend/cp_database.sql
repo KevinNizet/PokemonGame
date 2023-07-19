@@ -52,6 +52,7 @@ VALUES (
         'https://66.media.tumblr.com/927365f0bbdd1f3d2f852bac8759f89b/tumblr_mh8a7wx1WG1rfjowdo1_r2_500.gif'
     );
 
+DROP TABLE IF EXISTS newpokemon;
 CREATE TABLE
     newpokemon (
         id int primary key NOT NULL AUTO_INCREMENT,
