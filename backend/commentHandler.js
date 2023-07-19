@@ -1,9 +1,9 @@
 /* eslint-disable no-undef */
 const database = require("./database");
 
-const getAllPokemon = (req, res) => {
+const getAllComment = (req, res) => {
   database
-    .query("select * from pokemon")
+    .query("select * from newpokemon")
     .then(([users]) => {
       res.send(users);
     })
@@ -13,14 +13,14 @@ const getAllPokemon = (req, res) => {
     });
 };
 
-const getPokemonById = (req, res) => {
+const getCommentById = (req, res) => {
   const id = parseInt(req.params.id);
 
   database
-    .query("select * from pokemon where id = ?", [id])
-    .then(([pokemons]) => {
-      if (pokemons[0] != null) {
-        res.json(pokemons[0]);
+    .query("select * from newpokemon where id = ?", [id])
+    .then(([comments]) => {
+      if (comments[0] != null) {
+        res.json(comments[0]);
       } else {
         res.status(404).send("Not Found");
       }
@@ -31,11 +31,11 @@ const getPokemonById = (req, res) => {
     });
 };
 
-const deletePokemon = (req, res) => {
+const deleteComment = (req, res) => {
   const id = parseInt(req.params.id);
 
   database
-    .query("delete from pokemon where id = ?", [id])
+    .query("delete from newpokemon where id = ?", [id])
     .then(([result]) => {
       if (result.affectedRows === 0) {
         res.status(404).send("Not Found");
@@ -45,19 +45,16 @@ const deletePokemon = (req, res) => {
     })
     .catch((err) => {
       console.error(err);
-      res.status(500).send("Error deleting the pokemon");
+      res.status(500).send("Error deleting the comment");
     });
 };
 
-const updatePokemon = (req, res) => {
+const updateComment = (req, res) => {
   const id = parseInt(req.params.id);
-  const { firstname, type, location, description } = req.body;
+  const { comment } = req.body;
 
   database
-    .query(
-      "update pokemon set firstname = ?, type = ?, location = ?, description = ? where id = ?",
-      [firstname, type, location, description, id]
-    )
+    .query("update newpokemon set comment = ? where id = ?", [comment, id])
     .then(([result]) => {
       if (result.affectedRows === 0) {
         res.status(404).send("Not Found");
@@ -67,20 +64,17 @@ const updatePokemon = (req, res) => {
     })
     .catch((err) => {
       console.error(err);
-      res.status(500).send("Error editing the pokemon");
+      res.status(500).send("Error editing the comment");
     });
 };
 
-const createPokemon = (req, res) => {
-  const { firstname, type, location, description } = req.body;
+const createComment = (req, res) => {
+  const { comment } = req.body;
 
   database
-    .query(
-      "INSERT INTO pokemon (firstname, type, location, description) VALUES (?, ?, ?, ?)",
-      [firstname, type, location, description]
-    )
+    .query("INSERT INTO newpokemon (comment) VALUES (?)", [comment])
     .then(([result]) => {
-      res.location(`/pokemon/${result.insertId}`).sendStatus(201);
+      res.location(`/comment/${result.insertId}`).sendStatus(201);
     })
     .catch((err) => {
       console.error(err);
@@ -89,9 +83,9 @@ const createPokemon = (req, res) => {
 };
 
 module.exports = {
-  getAllPokemon,
-  getPokemonById,
-  deletePokemon,
-  updatePokemon,
-  createPokemon,
+  getAllComment,
+  getCommentById,
+  deleteComment,
+  updateComment,
+  createComment,
 };

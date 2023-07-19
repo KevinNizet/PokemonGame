@@ -51,3 +51,13 @@ VALUES (
         'Peut recharger un téléphone rapidement',
         'https://66.media.tumblr.com/927365f0bbdd1f3d2f852bac8759f89b/tumblr_mh8a7wx1WG1rfjowdo1_r2_500.gif'
     );
+
+CREATE TABLE
+    newpokemon (
+        id int primary key NOT NULL AUTO_INCREMENT,
+        comment varchar(255) NOT NULL
+    ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb3;
+
+INSERT INTO
+    newpokemon (comment)
+VALUES ("");
