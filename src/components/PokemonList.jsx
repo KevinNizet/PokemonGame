@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
 
-
 function PokemonList() {
   const [pokemonData, setPokemonData] = useState([]);
 
@@ -22,11 +21,8 @@ function PokemonList() {
             <li className="pokemonList_list" key={pokemon.id}>
               <NavLink to={`/pokemon/${pokemon.id}`}>
                 <div>
-                  <h3>{pokemon.firstname}</h3> 
-                 {/*  <img
-                    src={pokemon.image} 
-                    alt={pokemon.name}
-                  /> */}
+                  <img src={pokemon.picture} alt={pokemon.firstname} />
+                  <h3>{pokemon.firstname}</h3>
                 </div>
               </NavLink>
             </li>
