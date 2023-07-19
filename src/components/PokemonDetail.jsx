@@ -88,9 +88,9 @@ function PokemonDetail() {
         <img src={detailData?.picture} alt={detailData?.firstname} />
         <div className="allDetails">
           <p>{detailData?.firstname}</p>
-          <p>Type : {detailData?.type}</p>
+          <p>Typeeee : {detailData?.type}</p>
           <p>Localisation : {detailData?.location}</p>
-          <p>Caractéristique : {detailData?.description}</p>
+          <p>Caractéristiques : {detailData?.description}</p>
         </div>
       </div>
 
