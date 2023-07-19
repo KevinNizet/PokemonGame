@@ -1,10 +1,12 @@
 {
-  "name": "workshopdujour",
+  "name": "checkpoint4",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "npm-run-all --parallel dev:front dev:back",
+    "dev:front": "vite",
+    "dev:back": "cd backend && npm run dev",
     "build": "vite build",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
@@ -12,10 +14,8 @@
   "dependencies": {
     "axios": "^1.4.0",
     "dotenv": "^16.3.1",
-    "express": "^4.18.2",
     "fs": "^0.0.1-security",
     "mysql2": "^3.5.2",
-    "nodemon": "^3.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.14.2",
@@ -29,6 +29,7 @@
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.3.4",
+    "npm-run-all": "^4.1.5",
     "vite": "^4.3.9"
   }
 }

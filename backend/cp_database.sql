@@ -1,3 +1,11 @@
+-- Créez la base de données
+
+CREATE DATABASE IF NOT EXISTS cp_database;
+
+-- Utilisez la base de données nouvellement créée
+
+USE cp_database;
+
 DROP TABLE IF EXISTS pokemon;
 
 CREATE TABLE
@@ -17,33 +25,23 @@ INSERT INTO
         description
     )
 VALUES (
-        'Citizen Kane',
-        'Orson Wells',
-        '1941',
-        '0'
+        'Bulbizarre',
+        'Plante',
+        'Forêt',
+        'Meilleur starter'
     ), (
-        'The Godfather',
-        'Francis Ford Coppola',
-        '1972',
-        '1'
+        'Carapuce',
+        'Eau',
+        'Plage',
+        'Très mignon'
     ), (
-        'Pulp Fiction',
-        'Quentin Tarantino',
-        '1994',
-        '1'
+        'Salameche',
+        'Feu',
+        'Volcan',
+        'Fait de la lumière la nuit'
     ), (
-        'Apocalypse Now',
-        'Francis Ford Coppola',
-        '1979',
-        '1'
-    ), (
-        '2001 a space odyssey',
-        'Stanley Kubrick',
-        '1968',
-        '1'
-    ), (
-        'The Dark Knight',
-        'Christopher Nolan',
-        '2008',
-        '1'
+        'Pikachu',
+        'Electricité',
+        'Centrale électrique',
+        'Peut recharger un téléphone rapidement'
     );
