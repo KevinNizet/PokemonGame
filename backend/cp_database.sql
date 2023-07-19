@@ -12,9 +12,9 @@ CREATE TABLE
     pokemon (
         id int primary key NOT NULL AUTO_INCREMENT,
         firstname varchar(255) NOT NULL,
-        type varchar(255) NOT NULL,
-        location varchar(255) NOT NULL,
-        description varchar(255) NOT NULL,
+        type varchar(255) NULL,
+        location varchar(255) NULL,
+        description varchar(255) NULL,
         picture varchar(500)
     ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb3;
 
@@ -49,5 +49,16 @@ VALUES (
         'Electricité',
         'Centrale électrique',
         'Peut recharger un téléphone rapidement',
-        'https://media.tenor.com/qC1khy3afmoAAAAC/pikachu-surprised.gif'
+        'https://66.media.tumblr.com/927365f0bbdd1f3d2f852bac8759f89b/tumblr_mh8a7wx1WG1rfjowdo1_r2_500.gif'
     );
+
+DROP TABLE IF EXISTS newpokemon;
+CREATE TABLE
+    newpokemon (
+        id int primary key NOT NULL AUTO_INCREMENT,
+        comment varchar(255) NOT NULL
+    ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb3;
+
+INSERT INTO
+    newpokemon (comment)
+VALUES ("");
