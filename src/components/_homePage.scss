@@ -1,0 +1,27 @@
+.home-page {
+    background: rgb(79,81,91);
+    background: radial-gradient(circle, rgba(79,81,91,1) 0%, rgba(0,0,0,1) 78%);
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column-reverse;
+    overflow: hidden;
+
+    p {
+        color: white;
+        font-family: 'VT323', monospace;
+        font-size: 60px;
+    }
+
+    .pokeball-clicked {
+        transform: scale(7) rotate(360deg); 
+        transition: transform 1.1s ease; 
+}
+
+}
+
+
+
