@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { MdCatchingPokemon } from "react-icons/md";
 import axios from "axios";
@@ -12,14 +12,30 @@ function PokemonDetail() {
   const [detailData, setDetailData] = useState(undefined);
   const [comments, setComments] = useState([]);
   const [editingCommentId, setEditingCommentId] = useState(null);
+  const [showElement, setShowElement] = useState(false);
   const { id } = useParams();
   const { handleSubmit, register, reset } = useForm();
+  const navigate = useNavigate();
 
   const pokemonImages = {
     1: image1, //bulbi
     2: image2, //carapuce
     3: image3, //salameche
     4: image4, //pika
+  };
+
+  const pokemonColors = {
+    1: "black",
+    2: "black",
+    3: "white",
+    4: "black",
+  };
+
+  const informationColors = {
+    1: "#17594A",
+    2: "#090580",
+    3: "#B70404",
+    4: "#E7B10A",
   };
 
   //récupère les pokémons de la BDD
@@ -71,6 +87,24 @@ function PokemonDetail() {
   };
 
   return (
+    <>
+    {/* const [showElement, setShowElement] = useState(false); */}
+    {/* element invisible */}
+    <button
+    id="fixed-position-element"
+    onMouseEnter={() => setShowElement(!showElement)}
+    onMouseLeave={() => setShowElement(showElement)}
+  >
+    {showElement && (
+        <p>
+          Visible seulement au hover de la souris ????
+        </p>
+      )}
+    
+  </button>
+  {/* element invisible */} 
+
+
     <div
       style={{
         backgroundImage: `url(${pokemonImages[id]})`,
@@ -79,23 +113,36 @@ function PokemonDetail() {
         backgroundPosition: "center",
         padding: "90px 0px 220px 0",
       }}
-    >
-      <p id="details-title">
+    >    
+
+      <p id="details-title" style={{ color: pokemonColors[id] }}>
         Aide {detailData?.firstname} à trouver d'autres pokémons et note les
         ci-dessous !
       </p>
       <div className="image-container-details">
-        <img src={detailData?.picture} alt={detailData?.firstname} />
+        <img
+          onClick={() => navigate(-1)}
+          role="button"
+          tabIndex={0}
+          src={detailData?.picture}
+          alt={detailData?.firstname}
+        />
         <div className="allDetails">
-          <p>{detailData?.firstname}</p>
-          <p>Typeeee : {detailData?.type}</p>
-          <p>Localisation : {detailData?.location}</p>
-          <p>Caractéristiques : {detailData?.description}</p>
+          <p className="pokemon-firstname" style={{ color: informationColors[id] }}>{detailData?.firstname}</p>
+          <p>
+            <span>Type :</span> {detailData?.type}
+          </p>
+          <p>
+            <span>Localisation :</span> {detailData?.location}
+          </p>
+          <p id="last-detail">
+            <span>Caractéristique :</span> {detailData?.description}
+          </p>
         </div>
       </div>
 
       <div className="captured-pokemon">
-        <h3>Pokémons capturés :</h3>
+        <h3 style={{ color: informationColors[id] }}>Pokémons capturés :</h3>
         <ul>
           {comments &&
             comments.map((el) => (
@@ -135,10 +182,11 @@ function PokemonDetail() {
             defaultValue=""
             {...register("comment")}
           />
-          <button type="submit">Ajouter un pokémon</button>
+          <button type="submit" style={{ color: informationColors[id] }}>Pokéball, Go !</button>
         </form>
       </div>
     </div>
+    </>
   );
 }
 

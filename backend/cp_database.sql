@@ -42,7 +42,7 @@ VALUES (
         'Salameche',
         'Feu',
         'Café',
-        'Fait de la lumière la nuit',
+        'A toujours chaud',
         'https://66.media.tumblr.com/tumblr_ma0tijLFPg1rfjowdo1_500.gif'
     ), (
         'Pikachu',
