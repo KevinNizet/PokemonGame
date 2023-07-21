@@ -22,6 +22,7 @@ import Smogogo from "../assets/smogogo.gif";
 import Noctali from "../assets/noctali.gif";
 import Raichu from "../assets/raichu.gif";
 import Arcanin from "../assets/arcanin.gif";
+import Rocket from "../assets/rocket.gif";
 
 function PokemonDetail() {
   const [detailData, setDetailData] = useState(undefined);
@@ -37,10 +38,11 @@ function PokemonDetail() {
   const [showMagicarpe, setShowMagicarpe] = useState(false);
   const [showDracofeu, setShowDracofeu] = useState(false);
   const [showDraco, setShowDraco] = useState(false);
-  const [showKirby, setShowKirby] = useState(false);
   const [showNoctali, setShowNoctali] = useState(false);
   const [showRaichu, setShowRaichu] = useState(false);
   const [showArcanin, setShowArcanin] = useState(false);
+  const [showKirby, setShowKirby] = useState(false);
+  const [showKirby2, setShowKirby2] = useState(false);
   //-----------------pokemons invisibles--------------------//
 
   // confetti
@@ -114,17 +116,21 @@ function PokemonDetail() {
 
   return (
     <>
-      <div className={`${showKirby || showMew ? "globalDetailsDiv" : ""}`}>
+      <div
+        className={`${
+          showKirby || showKirby2 || showMew ? "globalDetailsDiv" : ""
+        }`}
+      >
         {/* //-----------------pokemons invisibles--------------------// */}
 
         <button
           id="mew"
-          disabled={showKirby}
+          disabled={showKirby || showKirby2}
           onMouseEnter={() => setShowMew(true)}
         ></button>
         <button
           id="voltali"
-          disabled={showMew || showKirby}
+          disabled={showKirby || showKirby2 || showMew}
           onMouseEnter={() => setShowVoltali(true)}
           onMouseLeave={() => setShowVoltali(false)}
         >
@@ -132,7 +138,7 @@ function PokemonDetail() {
         </button>
         <button
           id="papilusion"
-          disabled={showMew || showKirby}
+          disabled={showKirby || showKirby2 || showMew}
           onMouseEnter={() => setShowPapilusion(true)}
           onMouseLeave={() => setShowPapilusion(false)}
         >
@@ -140,7 +146,7 @@ function PokemonDetail() {
         </button>
         <button
           id="ronflex"
-          disabled={showMew || showKirby}
+          disabled={showKirby || showKirby2 || showMew}
           onMouseEnter={() => setShowRonflex(true)}
           onMouseLeave={() => setShowRonflex(false)}
         >
@@ -148,7 +154,7 @@ function PokemonDetail() {
         </button>
         <button
           id="fantominus"
-          disabled={showMew || showKirby}
+          disabled={showKirby || showKirby2 || showMew}
           onMouseEnter={() => setShowFantominus(true)}
           onMouseLeave={() => setShowFantominus(false)}
         >
@@ -156,7 +162,7 @@ function PokemonDetail() {
         </button>
         <button
           id="magicarpe"
-          disabled={showMew || showKirby}
+          disabled={showKirby || showKirby2 || showMew}
           onMouseEnter={() => setShowMagicarpe(true)}
           onMouseLeave={() => setShowMagicarpe(false)}
         >
@@ -164,7 +170,7 @@ function PokemonDetail() {
         </button>
         <button
           id="dracofeu"
-          disabled={showMew || showKirby}
+          disabled={showKirby || showKirby2 || showMew}
           onMouseEnter={() => setShowDracofeu(true)}
           onMouseLeave={() => setShowDracofeu(false)}
         >
@@ -172,7 +178,7 @@ function PokemonDetail() {
         </button>
         <button
           id="draco"
-          disabled={showMew || showKirby}
+          disabled={showKirby || showKirby2 || showMew}
           onMouseEnter={() => setShowDraco(true)}
           onMouseLeave={() => setShowDraco(false)}
         >
@@ -180,7 +186,7 @@ function PokemonDetail() {
         </button>
         <button
           id="noctali"
-          disabled={showMew || showKirby}
+          disabled={showKirby || showKirby2 || showMew}
           onMouseEnter={() => setShowNoctali(true)}
           onMouseLeave={() => setShowNoctali(false)}
         >
@@ -188,7 +194,7 @@ function PokemonDetail() {
         </button>
         <button
           id="raichu"
-          disabled={showMew || showKirby}
+          disabled={showKirby || showKirby2 || showMew}
           onMouseEnter={() => setShowRaichu(true)}
           onMouseLeave={() => setShowRaichu(false)}
         >
@@ -196,7 +202,7 @@ function PokemonDetail() {
         </button>
         <button
           id="arcanin"
-          disabled={showMew || showKirby}
+          disabled={showKirby || showKirby2 || showMew}
           onMouseEnter={() => setShowArcanin(true)}
           onMouseLeave={() => setShowArcanin(false)}
         >
@@ -212,7 +218,7 @@ function PokemonDetail() {
         <button
           id="kirby2"
           disabled={showMew}
-          onMouseEnter={() => setShowKirby(true)}
+          onMouseEnter={() => setShowKirby2(true)}
         ></button>
         {/* // boutons team rocket - game over */}
 
@@ -302,7 +308,7 @@ function PokemonDetail() {
               />
               <button
                 type="submit"
-                disabled={showMew || showKirby}
+                disabled={showMew || showKirby || showKirby2}
                 style={{ color: informationColors[id] }}
               >
                 Pokéball, Go !
@@ -318,7 +324,24 @@ function PokemonDetail() {
           <p>Oh non... la Team Rocket est là ! </p>
           <div id="looser">
             <img src={Miaous} alt="miaous" height={120} />
-            <img src={Smogogo} alt="miaous" height={130} />
+            <img src={Smogogo} alt="smogogo" height={130} />
+          </div>
+          <p>Recommencer ? </p>
+          <button onClick={() => navigate("/pokemonList")} type="button">
+            Oui
+          </button>
+          <button onClick={() => navigate("/")} type="button">
+            Non
+          </button>
+        </div>
+      )}
+      {showKirby2 && (
+        <div className="gameOver">
+          <p>Oh non... la Team Rocket est là ! </p>
+          <div id="looser">
+            <img src={Rocket} alt="smogogo" height={160} />
+            {/* <img src={Miaous} alt="miaous" height={120} />
+            <img src={Smogogo} alt="smogogo" height={130} /> */}
           </div>
           <p>Recommencer ? </p>
           <button onClick={() => navigate("/pokemonList")} type="button">
