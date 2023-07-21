@@ -64,31 +64,32 @@ function PokemonList() {
   };
 
   return (
-    <div className="pokemonList">
-      <p>Choisis ton starter pour partir à l'aventure !</p>
-      <div className="pokemonList_map">
-        {pokemonData.map((pokemon) => (
-          <li className="pokemonList_list" key={pokemon.id}>
-            <NavLink to={`/pokemon/${pokemon.id}`}>
-              <div className="image-container">
-                <img
-                  className="nofill"
-                  src={pokemon.picture}
-                  alt={pokemon.firstname}
-                />
-                <h3>{pokemon.firstname}</h3>
-              </div>
-            </NavLink>
-            <button
-              id="randomeName"
-              onClick={() => updatePokemonNickname(pokemon.id)}
-            >
-              Surnom
-            </button>
-          </li>
-        ))}
+
+      <div className="pokemonList">
+        <p>Choisis ton starter pour partir à l'aventure !</p>
+        <div className="pokemonList_map">
+          {pokemonData.map((pokemon) => (
+            <li className="pokemonList_list" key={pokemon.id}>
+              <NavLink to={`/pokemon/${pokemon.id}`}>
+                <div className="image-container">
+                  <img
+                    className="nofill"
+                    src={pokemon.picture}
+                    alt={pokemon.firstname}
+                  />
+                  <h3>{pokemon.firstname}</h3>
+                </div>
+              </NavLink>
+              <button
+                id="randomeName"
+                onClick={() => updatePokemonNickname(pokemon.id)}
+              >
+                Surnom
+              </button>
+            </li>
+          ))}
+        </div>
       </div>
-    </div>
   );
 }
 
