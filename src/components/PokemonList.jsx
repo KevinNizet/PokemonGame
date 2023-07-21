@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
+import { motion } from "framer-motion";
 
 function generateRandomNickname() {
   const nicknames = [
@@ -64,32 +65,40 @@ function PokemonList() {
   };
 
   return (
-
-      <div className="pokemonList">
-        <p>Choisis ton starter pour partir à l'aventure !</p>
-        <div className="pokemonList_map">
-          {pokemonData.map((pokemon) => (
-            <li className="pokemonList_list" key={pokemon.id}>
-              <NavLink to={`/pokemon/${pokemon.id}`}>
-                <div className="image-container">
-                  <img
-                    className="nofill"
-                    src={pokemon.picture}
-                    alt={pokemon.firstname}
-                  />
-                  <h3>{pokemon.firstname}</h3>
-                </div>
-              </NavLink>
-              <button
-                id="randomeName"
-                onClick={() => updatePokemonNickname(pokemon.id)}
-              >
-                Surnom
-              </button>
-            </li>
-          ))}
-        </div>
+    <motion.div
+      className="pokemonList"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1.5 }}
+      exit={{ opacity: 0, transition: { duration: 1.5 } }}
+    >
+      <p>Choisis ton starter pour partir à l'aventure !</p>
+      <div className="pokemonList_map">
+        {pokemonData.map((pokemon) => (
+          <li className="pokemonList_list" key={pokemon.id}>
+            <NavLink to={`/pokemon/${pokemon.id}`}>
+              <div className="image-container">
+                <motion.img
+                  whileHover={{ scale: 1.1 }}
+                  className="nofill"
+                  src={pokemon.picture}
+                  alt={pokemon.firstname}
+                />
+                <h3>{pokemon.firstname}</h3>
+              </div>
+            </NavLink>
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              onHoverStart={() => {}}
+              onHoverEnd={() => {}}
+              id="randomeName"
+              onClick={() => updatePokemonNickname(pokemon.id)}
+            >
+              Surnom
+            </motion.button>
+          </li>
+        ))}
       </div>
+    </motion.div>
   );
 }
 

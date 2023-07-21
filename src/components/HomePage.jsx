@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Pokeball from "../assets/pokeball.gif";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 function HomePage() {
   const [isClicked, setIsClicked] = useState(false);
@@ -14,9 +15,15 @@ function HomePage() {
   };
 
   return (
-    <div className="home-page">
-      <p>Clique sur la Poké Ball</p>
-      <img
+    <motion.div
+      className="home-page"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1.5 }}
+      exit={{ opacity: 0, transition: { duration: 1.5 } }}
+    >
+      {isClicked ? null : <p>Clique sur la Poké Ball</p>}
+      <motion.img
+        
         onClick={redirectToPokemonListPage}
         role="button"
         tabIndex={0}
@@ -24,7 +31,7 @@ function HomePage() {
         alt="pokeball"
         className={isClicked ? "pokeball-clicked" : ""}
       />
-    </div>
+    </motion.div>
   );
 }
 
