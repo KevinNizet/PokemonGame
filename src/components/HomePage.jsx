@@ -15,7 +15,7 @@ function HomePage() {
 
   return (
     <div className="home-page">
-      <p>Clique sur la pokéball</p>
+      <p>Clique sur la Poké Ball</p>
       <img
         onClick={redirectToPokemonListPage}
         role="button"

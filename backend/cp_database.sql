@@ -42,7 +42,7 @@ VALUES (
         'Salamèche',
         'Feu',
         'Café',
-        'A toujours chaud',
+        'Toujours chaud',
         'https://66.media.tumblr.com/tumblr_ma0tijLFPg1rfjowdo1_500.gif'
     ), (
         'Pikachu',
@@ -53,12 +53,11 @@ VALUES (
     );
 
 DROP TABLE IF EXISTS newpokemon;
+
 CREATE TABLE
     newpokemon (
         id int primary key NOT NULL AUTO_INCREMENT,
         comment varchar(255) NOT NULL
     ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb3;
 
-INSERT INTO
-    newpokemon (comment)
-VALUES ("");
+INSERT INTO newpokemon (comment) VALUES ("");
