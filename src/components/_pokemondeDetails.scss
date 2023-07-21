@@ -3,11 +3,18 @@
     margin: 0 auto;
     width: 80vw;
     font-family: 'VT323', monospace;
-    font-size: 60px;
+    font-size: 40px;
+    padding: 20px;
+    background-color: #fbeee0;
+    border: 2px solid #422800;
+    border-radius: 30px;
+    box-shadow: #422800 4px 4px 0 0;
+    color: #422800;
 }
 .image-container-details {
     margin-top: 100px;
     width: 260px;
+
 
     .allDetails {
         background-color: #fbeee0;
@@ -145,26 +152,316 @@ button:active {
     
 }
 
-/* code de l'élément invisble */
-#fixed-position-element {
+/* positionnement des pokémons invisibles */
+#mew {
   position: absolute;
-  top: 100px;
-  left: 50%;
-  height: 300px;
-  width: 300px;
+  top: 1px;
+  left: 91%;
+  height: 50px;
+  width: 50px;
   transform: translateX(-50%);
-  background-color: red;
-  color: red;
+  border: none;
+  background-color: transparent;
   z-index: 4;
-/*   visibility: hidden; */
 
-  p {
-    font-size: larger;
-    color: black;
-  }
-
-  #fixed-position-element:hover {
-    visibility: visible;
+    img {
+    height: 50px;
+    width: 50px;
   }
 }
+#voltali {
+    position: absolute;
+    top: 900px;
+    left: 50%;
+    height: 150px;
+    width: 150px;
+    transform: translateX(-50%);
+    border: none;
+    background-color: transparent;
+    z-index: 4;
+  
+      img {
+      height: 200px;
+      width: 200px;
+    }
+  }
+  #papilusion {
+    position: absolute;
+    top: 260px;
+    left: 30%;
+    height: 100px;
+    width: 100px;
+    transform: translateX(-50%);
+    border: none;
+    background-color: transparent;
+    z-index: 4;
+  
+      img {
+      height: 200px;
+      width: 200px;
+    }
+  }
+  #ronflex {
+    position: absolute;
+    top: 1000px;
+    left: 30%;
+    height: 100px;
+    width: 100px;
+    transform: translateX(-50%);
+    border: none;
+    background-color: transparent;
+    z-index: 4;
+  
+      img {
+      height: 200px;
+      width: 200px;
+    }
+  }
+  #fantominus {
+    position: absolute;
+    top: 900px;
+    left: 80%;
+    height: 50px;
+    width: 50px;
+    transform: translateX(-50%);
+    border: none;
+    background-color: transparent;
+    z-index: 4;
+  
+      img {
+      height: 300px;
+      width: 300px;
+    }
+  }
+  #magicarpe {
+    position: absolute;
+    top: 750px;
+    left: 90%;
+    height: 80px;
+    width: 80px;
+    transform: translateX(-50%);
+    border: none;
+    background-color: transparent;
+    z-index: 4;
+  
+      img {
+      height: 100px;
+      width: 100px;
+    }
+  }
+  #dracofeu {
+    position: absolute;
+    top: 200px;
+    left: 60%;
+    height: 80px;
+    width: 80px;
+    transform: translateX(-50%);
+    border: none;
+    background-color: transparent;
+    z-index: 4;
+  
+      img {
+      height: 450px;
+      width: 450px;
+    }
+  }
+  #draco {
+    position: absolute;
+    top: 720px;
+    left: 70%;
+    height: 40px;
+    width: 40px;
+    transform: translateX(-50%);
+    border: none;
+    background-color: transparent;
+    z-index: 4;
+  
+      img {
+      height: 180px;
+      width: 180px;
+    }
+  }
+  #noctali {
+    position: absolute;
+    top: 1100px;
+    left: 85%;
+    height: 85px;
+    width: 85px;
+    transform: translateX(-50%);
+    border: none;
+    background-color: transparent;
+    z-index: 4;
+  
+      img {
+      height: 200px;
+      width: 200px;
+    }
+  }
+  #noctali {
+    position: absolute;
+    top: 1100px;
+    left: 85%;
+    height: 80px;
+    width: 80px;
+    transform: translateX(-50%);
+    border: none;
+    background-color: transparent;
+    z-index: 4;
+  
+      img {
+      height: 200px;
+      width: 200px;
+    }
+  }
+  #raichu {
+    position: absolute;
+    top: 50px;
+    left: 5%;
+    height: 80px;
+    width: 80px;
+    transform: translateX(-50%);
+    border: none;
+    background-color: transparent;
+    z-index: 4;
+  
+      img {
+      height: 230px;
+      width: 230px;
+    }
+  }
+  #arcanin {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    height: 30px;
+    width: 30px;
+    transform: translateX(-50%);
+    border: none;
+    background-color: transparent;
+    z-index: 4;
+  
+      img {
+      height: 200px;
+      width: 200px;
+    }
+  }
+
+
+  //boutons team rocket game over
+  #kirby {
+    position: absolute;
+    top: 1150px;
+    left: 70%;
+    height: 80px;
+    width: 80px;
+    transform: translateX(-50%);
+    border: none;
+    background-color: transparent;
+    z-index: 4;
+  
+      img {
+      height: 180px;
+      width: 180px;
+    }
+  }
+  #kirby2 {
+    position: absolute;
+    top: 450px;
+    left: 90%;
+    height: 80px;
+    width: 80px;
+    transform: translateX(-50%);
+    border: none;
+    background-color: transparent;
+    z-index: 4;
+  
+      img {
+      height: 180px;
+      width: 180px;
+    }
+  }
+//boutons team rocket game over
+
+
+
+/* logique du pop-up game over */
+.gameOver {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'VT323', monospace;
+    font-size: xx-large;
+    background-color: #fbeee0;
+    border: 2px solid #422800;
+    border-radius: 30px;
+    box-shadow: #422800 4px 4px 0 0;
+    color: #422800;
+    border-radius: 10px;
+    width: 500px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px;
+
+    .looser {
+      display: flex;
+      flex-direction: row;
+    }
+  
+    button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 30%;
+      font-family: 'VT323', monospace;
+      font-size: x-large;
+      background-color: #FFFFFF;
+    border: 1px solid #222222;
+    border-radius: 8px;
+    box-sizing: border-box;
+    color: #222222;  
+    }
+  }
+  
+  .congrats {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'VT323', monospace;
+    font-size: 40px;
+    color: #422800;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px;
+    overflow: hidden;
+
+
+    button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 30%;
+      font-family: 'VT323', monospace;
+      font-size: x-large;
+      border: 2px solid #422800;
+      border-radius: 30px;
+      box-shadow: #422800 4px 4px 0 0;
+      border-radius: 10px; 
+      margin-top: 20px;
+    }
+  }
+  
+
+
+  .globalDetailsDiv {
+    filter: blur(8px);
+    transition-duration: 2s;
+  }
+  //
 
