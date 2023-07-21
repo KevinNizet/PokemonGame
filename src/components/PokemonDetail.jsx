@@ -23,6 +23,7 @@ import Noctali from "../assets/noctali.gif";
 import Raichu from "../assets/raichu.gif";
 import Arcanin from "../assets/arcanin.gif";
 import Rocket from "../assets/rocket.gif";
+import { motion } from "framer-motion";
 
 function PokemonDetail() {
   const [detailData, setDetailData] = useState(undefined);
@@ -239,7 +240,13 @@ function PokemonDetail() {
             attention... La Team Rocket prépare un mauvais coup. 😈
           </p>
           <div className="image-container-details">
-            <img
+            <motion.img
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1.5 }}
+              exit={{ opacity: 0, transition: { duration: 1 } }}
+              whileHover={{ scale: 1.1 }}
+              onHoverStart={() => {}}
+              onHoverEnd={() => {}}
               onClick={() => navigate(-1)}
               role="button"
               tabIndex={0}
@@ -270,7 +277,12 @@ function PokemonDetail() {
             <ul>
               {comments &&
                 comments.map((el) => (
-                  <li key={el.id}>
+                  <motion.li
+                    key={el.id}
+                    whileHover={{ scale: 1.07 }}
+                    onHoverStart={() => {}}
+                    onHoverEnd={() => {}}
+                  >
                     {editingCommentId === el.id ? (
                       <form>
                         <input
@@ -293,7 +305,7 @@ function PokemonDetail() {
                         </div>
                       </>
                     )}
-                  </li>
+                  </motion.li>
                 ))}
             </ul>
           </div>
@@ -306,13 +318,16 @@ function PokemonDetail() {
                 defaultValue=""
                 {...register("comment")}
               />
-              <button
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                onHoverStart={() => {}}
+                onHoverEnd={() => {}}
                 type="submit"
                 disabled={showMew || showKirby || showKirby2}
                 style={{ color: informationColors[id] }}
               >
                 Pokéball, Go !
-              </button>
+              </motion.button>
             </form>
           </div>
         </div>
@@ -327,12 +342,22 @@ function PokemonDetail() {
             <img src={Smogogo} alt="smogogo" height={130} />
           </div>
           <p>Recommencer ? </p>
-          <button onClick={() => navigate("/pokemonList")} type="button">
+          <motion.button  initial={{ opacity: 0 }}
+            animate={{ opacity: 1.5 }}
+            exit={{ opacity: 0, transition: { duration: 1 } }}
+            whileHover={{ scale: 1.1 }}
+            onHoverStart={() => {}}
+            onHoverEnd={() => {}} onClick={() => navigate("/pokemonList")} type="button">
             Oui
-          </button>
-          <button onClick={() => navigate("/")} type="button">
+          </motion.button>
+          <motion.button  initial={{ opacity: 0 }}
+            animate={{ opacity: 1.5 }}
+            exit={{ opacity: 0, transition: { duration: 1 } }}
+            whileHover={{ scale: 1.1 }}
+            onHoverStart={() => {}}
+            onHoverEnd={() => {}} onClick={() => navigate("/")} type="button">
             Non
-          </button>
+          </motion.button>
         </div>
       )}
       {showKirby2 && (
@@ -344,12 +369,30 @@ function PokemonDetail() {
             <img src={Smogogo} alt="smogogo" height={130} /> */}
           </div>
           <p>Recommencer ? </p>
-          <button onClick={() => navigate("/pokemonList")} type="button">
+          <motion.button
+            onClick={() => navigate("/pokemonList")}
+            type="button"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1.5 }}
+            exit={{ opacity: 0, transition: { duration: 1 } }}
+            whileHover={{ scale: 1.1 }}
+            onHoverStart={() => {}}
+            onHoverEnd={() => {}}
+          >
             Oui
-          </button>
-          <button onClick={() => navigate("/")} type="button">
+          </motion.button>
+          <motion.button
+            onClick={() => navigate("/")}
+            type="button"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1.5 }}
+            exit={{ opacity: 0, transition: { duration: 1 } }}
+            whileHover={{ scale: 1.1 }}
+            onHoverStart={() => {}}
+            onHoverEnd={() => {}}
+          >
             Non
-          </button>
+          </motion.button>
         </div>
       )}
 
@@ -359,20 +402,32 @@ function PokemonDetail() {
           <p>Bravo ! Tu as retrouvé Mew ✨ </p>
           <img src={Mew} alt="mew" height={400} width={400} />
           <p>Recommencer ? </p>
-          <button
+          <motion.button
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1.5 }}
+            exit={{ opacity: 0, transition: { duration: 1 } }}
+            whileHover={{ scale: 1.1 }}
+            onHoverStart={() => {}}
+            onHoverEnd={() => {}}
             className="congrats-button"
             onClick={() => navigate("/pokemonList")}
             type="button"
           >
             Oui
-          </button>
-          <button
+          </motion.button>
+          <motion.button
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1.5 }}
+            exit={{ opacity: 0, transition: { duration: 1 } }}
+            whileHover={{ scale: 1.1 }}
+            onHoverStart={() => {}}
+            onHoverEnd={() => {}}
             className="congrats-button"
             onClick={() => navigate("/")}
             type="button"
           >
             Non
-          </button>
+          </motion.button>
         </div>
       )}
     </>

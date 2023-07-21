@@ -1,9 +1,7 @@
 import React, { useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
-import HomePage from "./components/HomePage";
-import PokemonList from "./components/PokemonList";
-import PokemonDetail from "./components/PokemonDetail";
+import { BrowserRouter as Router } from "react-router-dom";
 import "./style/import.scss";
+import AnimatedRoutes from "./components/AnimatedRoutes";
 
 function App() {
   useEffect(() => {
@@ -28,13 +26,9 @@ function App() {
   }, []);
 
   return (
-    <div>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/pokemonList" element={<PokemonList />} />
-        <Route path="/pokemon/:id" element={<PokemonDetail />} />
-      </Routes>
-    </div>
+  
+      <AnimatedRoutes />
+    
   );
 }
 
