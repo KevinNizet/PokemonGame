@@ -57,13 +57,6 @@ function PokemonDetail() {
     4: image4, //pika
   };
 
-  const pokemonColors = {
-    1: "black",
-    2: "black",
-    3: "white",
-    4: "black",
-  };
-
   const informationColors = {
     1: "#17594A",
     2: "#090580",
@@ -234,7 +227,7 @@ function PokemonDetail() {
             padding: "90px 0px 220px 0",
           }}
         >
-          <p id="details-title" style={{ color: pokemonColors[id] }}>
+          <p id="details-title">
             Aide {detailData?.firstname} à retrouver le Pokémon légendaire. ✨{" "}
             <br /> Note les pokémons rencontrés dans ton Pokédex mais fais très
             attention... La Team Rocket prépare un mauvais coup. 😈
