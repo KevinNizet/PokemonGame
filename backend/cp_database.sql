@@ -39,7 +39,7 @@ VALUES (
         'Bon nageur',
         'https://66.media.tumblr.com/tumblr_ma4ft6OXxw1rfjowdo1_500.gif'
     ), (
-        'Salameche',
+        'Salamèche',
         'Feu',
         'Café',
         'A toujours chaud',
