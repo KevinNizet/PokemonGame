@@ -21,7 +21,11 @@ import Miaous from "../assets/miaous.gif";
 import Smogogo from "../assets/smogogo.gif";
 import Noctali from "../assets/noctali.gif";
 import Raichu from "../assets/raichu.gif";
-import Arcanin from "../assets/arcanin.gif";
+import Caninos from "../assets/caninos.gif";
+import Osselait from "../assets/osselait.gif";
+import Togepi from "../assets/togepi.gif";
+import Abra from "../assets/abra.webp";
+
 import Rocket from "../assets/rocket.gif";
 import { motion } from "framer-motion";
 
@@ -41,7 +45,10 @@ function PokemonDetail() {
   const [showDraco, setShowDraco] = useState(false);
   const [showNoctali, setShowNoctali] = useState(false);
   const [showRaichu, setShowRaichu] = useState(false);
-  const [showArcanin, setShowArcanin] = useState(false);
+  const [showCaninos, setShowCaninos] = useState(false);
+  const [showOsselait, setShowOsselait] = useState(false);
+  const [showTogepi, setShowTogepi] = useState(false);
+  const [showAbra, setShowAbra] = useState(false);
   const [showKirby, setShowKirby] = useState(false);
   const [showKirby2, setShowKirby2] = useState(false);
   //-----------------pokemons invisibles--------------------//
@@ -114,6 +121,43 @@ function PokemonDetail() {
       })
       .catch((error) => console.error(error.message));
   };
+
+  //-------------position aléatoire de mew et de la teamrocket----------------//
+  const getRandomPosition = () => {
+    const maxWidth = window.innerWidth - 100; // Assuming buttons have width of 100px
+    const maxHeight = window.innerHeight - 100; // Assuming buttons have height of 100px
+
+    const randomLeft = Math.floor(Math.random() * maxWidth);
+    const randomTop = Math.floor(Math.random() * maxHeight);
+
+    return { left: `${randomLeft}px`, top: `${randomTop}px` };
+  };
+
+  useEffect(() => {
+    // Appellede la fonction pour générer les valeurs aléatoires lors du chargement initial de la page
+    const kirbyButton = document.getElementById("kirby");
+    const kirby2Button = document.getElementById("kirby2");
+    const mewButton = document.getElementById("mew");
+
+    if (kirbyButton) {
+      const randomPosition = getRandomPosition();
+      kirbyButton.style.left = randomPosition.left;
+      kirbyButton.style.top = randomPosition.top;
+    }
+
+    if (kirby2Button) {
+      const randomPosition = getRandomPosition();
+      kirby2Button.style.left = randomPosition.left;
+      kirby2Button.style.top = randomPosition.top;
+    }
+
+    if (mewButton) {
+      const randomPosition = getRandomPosition();
+      mewButton.style.left = randomPosition.left;
+      mewButton.style.top = randomPosition.top;
+    }
+  }, []);
+  //-------------position aléatoire de mew et de la teamrocket----------------//
 
   return (
     <>
@@ -202,15 +246,39 @@ function PokemonDetail() {
           {showRaichu && <img src={Raichu} alt="raichu" />}
         </button>
         <button
-          id="arcanin"
+          id="caninos"
           disabled={showKirby || showKirby2 || showMew}
-          onMouseEnter={() => setShowArcanin(true)}
-          onMouseLeave={() => setShowArcanin(false)}
+          onMouseEnter={() => setShowCaninos(true)}
+          onMouseLeave={() => setShowCaninos(false)}
         >
-          {showArcanin && <img src={Arcanin} alt="arcanin" />}
+          {showCaninos && <img src={Caninos} alt="caninos" />}
+        </button>
+        <button
+          id="osselait"
+          disabled={showKirby || showKirby2 || showMew}
+          onMouseEnter={() => setShowOsselait(true)}
+          onMouseLeave={() => setShowOsselait(false)}
+        >
+          {showOsselait && <img src={Osselait} alt="osselait" />}
+        </button>
+        <button
+          id="togepi"
+          disabled={showKirby || showKirby2 || showMew}
+          onMouseEnter={() => setShowTogepi(true)}
+          onMouseLeave={() => setShowTogepi(false)}
+        >
+          {showTogepi && <img src={Togepi} alt="togepi" />}
+        </button>
+        <button
+          id="abra"
+          disabled={showKirby || showKirby2 || showMew}
+          onMouseEnter={() => setShowAbra(true)}
+          onMouseLeave={() => setShowAbra(false)}
+        >
+          {showAbra && <img src={Abra} alt="abra" />}
         </button>
 
-        {/* // boutons team rocket - game over */}
+        {/* boutons team rocket - game over */}
         <button
           id="kirby"
           disabled={showMew}
@@ -237,7 +305,7 @@ function PokemonDetail() {
           <p id="details-title">
             Aide {detailData?.firstname} à retrouver le Pokémon légendaire. ✨{" "}
             <br /> Note les pokémons rencontrés dans ton Pokédex mais fais très
-            attention... La Team Rocket prépare un mauvais coup. 😈
+            attention... La Team Rocket se cache quelque part. 😈
           </p>
           <div className="image-container-details">
             <motion.img
@@ -315,6 +383,7 @@ function PokemonDetail() {
               <input
                 type="text"
                 name="comment"
+                placeholder="Écris ici..."
                 defaultValue=""
                 {...register("comment")}
               />
@@ -342,20 +411,28 @@ function PokemonDetail() {
             <img src={Smogogo} alt="smogogo" height={130} />
           </div>
           <p>Recommencer ? </p>
-          <motion.button  initial={{ opacity: 0 }}
+          <motion.button
+            initial={{ opacity: 0 }}
             animate={{ opacity: 1.5 }}
             exit={{ opacity: 0, transition: { duration: 1 } }}
             whileHover={{ scale: 1.1 }}
             onHoverStart={() => {}}
-            onHoverEnd={() => {}} onClick={() => navigate("/pokemonList")} type="button">
+            onHoverEnd={() => {}}
+            onClick={() => navigate("/pokemonList")}
+            type="button"
+          >
             Oui
           </motion.button>
-          <motion.button  initial={{ opacity: 0 }}
+          <motion.button
+            initial={{ opacity: 0 }}
             animate={{ opacity: 1.5 }}
             exit={{ opacity: 0, transition: { duration: 1 } }}
             whileHover={{ scale: 1.1 }}
             onHoverStart={() => {}}
-            onHoverEnd={() => {}} onClick={() => navigate("/")} type="button">
+            onHoverEnd={() => {}}
+            onClick={() => navigate("/")}
+            type="button"
+          >
             Non
           </motion.button>
         </div>

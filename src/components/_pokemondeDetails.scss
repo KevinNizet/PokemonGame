@@ -161,7 +161,7 @@ button:active {
   width: 50px;
   transform: translateX(-50%);
   border: none;
-  background-color: transparent;
+  background-color: orange;
   z-index: 4;
 
     img {
@@ -329,7 +329,7 @@ button:active {
       width: 230px;
     }
   }
-  #arcanin {
+  #caninos {
     position: absolute;
     top: 70%;
     left: 50%;
@@ -345,6 +345,54 @@ button:active {
       width: 200px;
     }
   }
+  #osselait{
+    position: absolute;
+    top: 1150px;
+    left: 5%;
+    height: 60px;
+    width: 60px;
+    transform: translateX(-50%);
+    border: none;
+    background-color: transparent;
+    z-index: 4;
+  
+      img {
+      height: 170px;
+      width: 190px;
+    }
+  }
+  #togepi{
+    position: absolute;
+    top: 10px;
+    left: 80%;
+    height: 60px;
+    width: 60px;
+    transform: translateX(-50%);
+    border: none;
+    background-color: transparent;
+    z-index: 4;
+  
+      img {
+      height: 170px;
+      width: 190px;
+    }
+  }
+  #abra{
+    position: absolute;
+    top: 250px;
+    left: 90%;
+    height: 60px;
+    width: 60px;
+    transform: translateX(-50%);
+    border: none;
+    background-color: transparent;
+    z-index: 4;
+  
+      img {
+      height: 170px;
+      width: 190px;
+    }
+  }
 
 
   //boutons team rocket game over
@@ -356,7 +404,7 @@ button:active {
     width: 80px;
     transform: translateX(-50%);
     border: none;
-    background-color: transparent;
+    background-color: red;
     z-index: 4;
   
       img {
@@ -372,7 +420,7 @@ button:active {
     width: 80px;
     transform: translateX(-50%);
     border: none;
-    background-color: transparent;
+    background-color: green;
     z-index: 4;
   
       img {
