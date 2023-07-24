@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import axios from "axios";
 import { motion } from "framer-motion";
 
+
 function generateRandomNickname() {
   const nicknames = [
     "Sparky",
@@ -98,6 +99,7 @@ function PokemonList() {
           </li>
         ))}
       </div>
+
     </motion.div>
   );
 }
