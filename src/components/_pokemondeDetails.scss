@@ -161,7 +161,7 @@ button:active {
   width: 50px;
   transform: translateX(-50%);
   border: none;
-  background-color: orange;
+  background-color: transparent;
   z-index: 4;
 
     img {
@@ -404,7 +404,7 @@ button:active {
     width: 80px;
     transform: translateX(-50%);
     border: none;
-    background-color: red;
+    background-color: transparent;
     z-index: 4;
   
       img {
@@ -420,7 +420,7 @@ button:active {
     width: 80px;
     transform: translateX(-50%);
     border: none;
-    background-color: green;
+    background-color: transparent;
     z-index: 4;
   
       img {
